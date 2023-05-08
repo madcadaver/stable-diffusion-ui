@@ -1324,7 +1324,7 @@ body.wait-pause {
 }
 
 .taskNegativePromptContainer, #top-nav #tab-container, #footer {
-    display: none !important;
+    display: hidden !important;
 }
 
 /* TOAST NOTIFICATIONS */
