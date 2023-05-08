@@ -9,18 +9,18 @@ html {
 
 body {
     margin: 0;
-    font-size: 12pt;
-    background: rgba(23, 23, 23, 0.8);
+    font-size: 11pt;
+    background-color: var(--background-color1);
     color: var(--text-color);
 }
 a {
-    color: rgb(178 34 34);
+    color: rgb(0, 102, 204);
 }
 a:visited {
-    color: rgb(178 34 34);
+    color: rgb(0, 102, 204);
 }
 label {
-    font-size: 1em;
+    font-size: 10pt;
 }
 code {
     background: var(--background-color4);
@@ -34,19 +34,19 @@ code {
 }
 #prompt {
     width: 100%;
-    height: 80pt;
-    font-size: 1.2em;
-    margin-bottom: 12px;
-    margin-top: 10px;
+    height: 65pt;
+    font-size: 14px;
+    margin-bottom: 6px;
+    margin-top: 5px;
     display: block;
     border: 2px solid var(--background-color2);
 }
 #negative_prompt {
     width: 100%;
     height: 50pt;
-    font-size: 0.9em;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    margin-top: 5px;
     display: block;
 }
 .image_clear_btn {
@@ -62,7 +62,7 @@ code {
     width: 16pt;
     height: 16pt;
     font-family: Verdana;
-    font-size: unset;
+    font-size: 8pt;
     top: 0px;
     right: 0px;
 }
@@ -72,7 +72,7 @@ code {
     left: auto;
 }
 .settings-box ul {
-    font-size: 0.9em;
+    font-size: 9pt;
     margin-bottom: 5px;
     padding-left: 10px;
     list-style-type: none;
@@ -84,16 +84,16 @@ code {
     vertical-align: middle;
 }
 .outputMsg {
-    font-size: 0.9em;
+    font-size: small;
     padding-bottom: 3pt;
 }
 #footer {
-    font-size: 0.9em;
+    font-size: small;
     padding: 10pt;
     background: none;
 }
 #footer-legal {
-    font-size: 0.9em;
+    font-size: 8pt;
 }
 #footer-spacer {
     flex: 0.7
@@ -172,7 +172,7 @@ code {
     flex-direction: column;
 }
 #logo small {
-    font-size: 1.1em;
+    font-size: 11pt;
 }
 #editor {
     background: var(--background-color1);
@@ -197,7 +197,7 @@ code {
 }
 #preview {
     padding: 8px;
-    /* background: var(--background-color1); */
+    background: var(--background-color1);
 }
 #preview .collapsible-content {
     padding: 0px 15px;
@@ -209,7 +209,7 @@ code {
     padding-bottom: 10px;
 }
 #makeImage {
-    border-radius: 25px;
+    border-radius: 6px;
 }
 #editor-modifiers h5 {
     padding: 5pt 0;
@@ -221,7 +221,7 @@ code {
     border: var(--primary-button-border);
     color: var(--accent-text-color);
     width: 100%;
-    height: 2.5em;
+    height: 30pt;
 }
 #makeImage:hover {
     background: hsl(var(--accent-hue), 100%, calc(var(--accent-lightness) + 6%));
@@ -275,7 +275,7 @@ button#resume {
 .collapsible-content h5 {
     padding: 5pt 0pt;
     margin: 0;
-    font-size: 0.9em;
+    font-size: 10pt;
 }
 .collapsible-handle {
     color: white;
@@ -312,24 +312,22 @@ div.img-preview img {
 }
 #server-status {
     position: absolute;
-    top: 0px;
-    text-align: left;
-    left: 20px;
-    text-transform: uppercase;
-    line-height: 1em;
+    right: 16px;
+    top: 4px;
+    text-align: right;
 }
 #server-status-color {
-    font-size: 0.95em;
+    font-size: 14pt;
     color: rgb(200, 139, 0);
     display: inline;
 }
 #server-status-msg {
     color: rgb(200, 139, 0);
     padding-left: 2pt;
-    font-size: 0.9em;
+    font-size: 10pt;
 }
 .preview-prompt {
-    font-size: 1.25em;
+    font-size: 13pt;
     display: inline;
 }
 #coffeeButton {
@@ -341,11 +339,11 @@ div.img-preview img {
     position: relative;
     background: var(--background-color4);
     display: flex;
-    /* padding: 12px 0 0; */
+    padding: 12px 0 0;
 }
 .tab .icon {
     padding-right: 4pt;
-    font-size: 1.1em;
+    font-size: 14pt;
     transform: translateY(1pt);
 }
 #logo {
@@ -370,16 +368,15 @@ div.img-preview img {
     cursor: default;
 }
 #initial-text {
-    padding-top: 2.5em;
+    padding-top: 15pt;
     padding-left: 4pt;
 }
 .settings-subheader {
-    font-size: 0.95em;
+    font-size: 10pt;
     font-weight: bold;
 }
 .pl-5 {
     padding-left: 5pt;
-    line-height: 2em;
 }
 #community-links {
     display: inline-block;
@@ -391,7 +388,7 @@ div.img-preview img {
 #community-links li {
     padding-bottom: 12pt;
     display: block;
-    font-size: 0.95em;
+    font-size: 10pt;
 }
 #community-links li .fa-fw {
     padding-right: 2pt;
@@ -413,7 +410,7 @@ div.img-preview img {
 #help-links li {
     padding-bottom: 12pt;
     display: block;
-    font-size: 0.9em;
+    font-size: 10pt;
 }
 #help-links li .fa-fw {
     padding-right: 2pt;
@@ -427,7 +424,7 @@ div.img-preview img {
     margin-top: 8px;
 }
 .help-section {
-    font-size: 1.3em;
+    font-size: 130%;
 }
 .dropdown {
     overflow: hidden;
@@ -476,8 +473,7 @@ div.img-preview img {
 }
 
 .imageTaskContainer {
-    background-color: var(--background-color2);
-    border: 1px solid var(--background-color3);
+    border: 1px solid var(--background-color2);
     margin-bottom: 10pt;
     padding: 5pt;
     border-radius: 5pt;
@@ -507,7 +503,7 @@ div.img-preview img {
     cursor: move;
 }
 .taskStatusLabel {
-    font-size: 0.85em;
+    font-size: 8pt;
     background:var(--background-color2);
     border: 1px solid rgb(61, 62, 66);
     padding: 2pt 4pt;
@@ -531,9 +527,6 @@ div.img-preview img {
     border: var(--primary-button-border);
     color: rgb(255, 221, 255);
     padding: 3pt 6pt;
-    font-size: 1.2em;
-    text-transform: uppercase;
-    font-weight: 600;
 }
 .secondaryButton {
     background: rgb(132, 8, 0);
@@ -578,7 +571,7 @@ div.img-preview img {
     width: max-content;
 }
 .taskConfig {
-    font-size: 0.95em;
+    font-size: 10pt;
     color: #aaa;
     margin-bottom: 5pt;
     margin-top: 5pt;
@@ -673,7 +666,7 @@ div.img-preview img {
     color: white;
     text-shadow: 0px 0px 4px black;
     opacity: 60%;
-    font-size: 1em;
+    font-size: 12px;
 }
 
 #editor-settings {
@@ -695,6 +688,7 @@ div.img-preview img {
 
 #editor-settings-entries table td {
     padding: 0px;
+    line-height: 28px;
 }
 
 #editor-settings-entries table td:first-child {
@@ -729,7 +723,7 @@ textarea {
     background: var(--input-background-color);
     border: var(--input-border-size) solid var(--input-border-color); 
     color: var(--input-text-color);
-    font-size: 0.85em;
+    font-size: 9pt;
 }
 
 input:hover {
@@ -768,7 +762,6 @@ input::file-selector-button,
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border-radius: 25px !important;
 }
 
 .button i {
@@ -982,7 +975,7 @@ input::file-selector-button {
 .simple-tooltip {
     border-radius: 3px;
     font-weight: bold;
-    font-size: 1em;
+    font-size: 12px;
     background-color: var(--background-color3);
 
     visibility: hidden;
@@ -1164,7 +1157,7 @@ input::file-selector-button {
 }
 
 #tab-content-wrapper > * {
-    padding-top: 0;
+    padding-top: 8px;
 }
 
 .tab-content-inner {
@@ -1310,23 +1303,6 @@ body.wait-pause {
     display:none !important;
 }
 
-.simple-tooltip {
-    color: var(--text-color);
-    font-weight: normal !important;
-    font-size: unset;
-    background-color: var(--background-color3);
-    border: 1px solid var(--accent-color);
-    white-space: normal !important;
-}
-
-.simple-tooltip span.recommend b {
-    color: var(--accent-color) !important;
-}
-
-.taskNegativePromptContainer, #top-nav #tab-container, #footer {
-    display: hidden !important;
-}
-
 /* TOAST NOTIFICATIONS */
 .toast-notification {
     position: fixed;
@@ -1340,7 +1316,7 @@ body.wait-pause {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     z-index: 9999;
     animation: slideInRight 0.5s ease forwards;
-    transition: bottom 0.5s ease;
+    transition: bottom 0.5s ease; // Add a transition to smoothly reposition the toasts
 }
 
 .toast-notification-error {
