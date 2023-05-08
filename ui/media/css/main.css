@@ -1303,7 +1303,7 @@ body.wait-pause {
     color: var(--button-text-color);
 }
 .jconfirm.jconfirm-modern .jconfirm-box {
-    background-color: var(--background-color1);
+    background-color: var(--background-color3);
 }
 
 .displayNone {
