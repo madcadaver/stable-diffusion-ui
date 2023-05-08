@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Easy Diffusion</title>
+    <title>smartAss</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#673AB6">
     <link rel="icon" type="image/png" href="/media/images/favicon-16x16.png" sizes="16x16">
@@ -26,16 +26,16 @@
 <body>
 <div id="container">
     <div id="top-nav">
-        <div id="logo">
+        <!-- <div id="logo">
             <h1>
                 <img id="logo_img" src="/media/images/icon-512x512.png" >
-                Easy Diffusion
+                smartAss
                 <small>v2.5.35 <span id="updateBranchLabel"></span></small>
             </h1>
-        </div>
+        </div> -->
         <div id="server-status">
             <div id="server-status-color">●</div>
-            <span id="server-status-msg">Stable Diffusion is starting..</span>
+            <span id="server-status-msg">smartAss is starting</span>
         </div>
         <div id="tab-container" class="tab-container">
             <span id="tab-main" class="tab active">
@@ -53,18 +53,21 @@
     <div id="tab-content-wrapper">
         <div id="tab-content-main" class="tab-content active flex-container">
         <div id="editor">
-            <div id="editor-inputs">
+            <div id="editor-inputs" class="panel-box">
                 <div id="editor-inputs-prompt" class="row">
                     <label for="prompt"><b>Enter Prompt</b></label> <small>or</small> <button id="promptsFromFileBtn" class="tertiaryButton">Load from a file</button>
-                    <textarea id="prompt" class="col-free">a photograph of an astronaut riding a horse</textarea>
+                    <textarea id="prompt" class="col-free">a (mushroom) on an overgrown planet</textarea>
                     <input id="prompt_from_file" name="prompt_from_file" type="file" /> <!-- hidden -->
                     <label for="negative_prompt" class="collapsible" id="negative_prompt_handle">
                         Negative Prompt
-                        <a href="https://github.com/cmdr2/stable-diffusion-ui/wiki/Writing-prompts#negative-prompts" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top">Click to learn more about Negative Prompts</span></i></a>
+                        <a href="https://github.com/cmdr2/stable-diffusion-ui/wiki/Writing-prompts#negative-prompts" target="_blank"><i class="fa-solid fa-circle-question help-btn">
+                            <span class="simple-tooltip bottom">
+                                Terms that describe what you dont want in the output image (deformed, missing fingers, etc.) <br/> Weights on prompts () brackets increase importance, [] brackets decrease importance. Example <br/>'a (mushroom) on an [overgrown] ((planet))'<br/> would make ((planet)) the most important and [overgrown] the least important prompt.
+                            </span></i></a>
                         <small>(optional)</small>
                     </label>
                     <div class="collapsible-content">
-                        <textarea id="negative_prompt" name="negative_prompt" placeholder="list the things to remove from the image (e.g. fog, green)"></textarea>
+                        <textarea id="negative_prompt" name="negative_prompt" placeholder="list the things to remove from the image (e.g. fog, green)">aged down, bad anatomy, bad hands, blurred, blurry, body out of frame, censor bar, censored, child, cropped, cut off, deformed, disconnected limbs, disfigured, draft, error, extra digit, extra limb, extra limbs, fat, flat chest, floating limbs, grainy, jpeg artifacts, long body, long neck, low quality, lowres, malformed hands, missing fingers, missing limb, motion lines, mutated, mutated hands and fingers, mutation, normal quality, out of focus, out of frame, poorly drawn face, poorly drawn feet, poorly drawn hands, signature, text, tiling, ugly, watermark, white-space, worst quality</textarea>
                     </div>
                 </div>
 
@@ -114,7 +117,7 @@
 		</div>
             </div>
 
-            <span class="line-separator"></span>
+            <!-- <span class="line-separator"></span> -->
 
             <div id="editor-settings" class="settings-box panel-box">
                 <h4 class="collapsible">
@@ -128,12 +131,21 @@
                 <div id="editor-settings-entries" class="collapsible-content">
                     <div><table>
                     <tr><b class="settings-subheader">Image Settings</b></tr>
-                    <tr class="pl-5"><td><label for="seed">Seed:</label></td><td><input id="seed" name="seed" size="10" value="0" onkeypress="preventNonNumericalInput(event)"> <input id="random_seed" name="random_seed" type="checkbox" checked><label for="random_seed">Random</label></td></tr>
-                    <tr class="pl-5"><td><label for="num_outputs_total">Number of Images:</label></td><td><input id="num_outputs_total" name="num_outputs_total" value="1" size="1" onkeypress="preventNonNumericalInput(event)"> <label><small>(total)</small></label> <input id="num_outputs_parallel" name="num_outputs_parallel" value="1" size="1" onkeypress="preventNonNumericalInput(event)"> <label for="num_outputs_parallel"><small>(in parallel)</small></label></td></tr>
+                    <tr class="pl-5"><td><label for="seed">Seed:</label></td><td><input id="seed" name="seed" size="10" value="0" onkeypress="preventNonNumericalInput(event)"> <input id="random_seed" name="random_seed" type="checkbox" checked><label for="random_seed">Random</label>
+                        <a href="https://civitai.com" target="_blank"><i class="fa-solid fa-circle-question help-btn">
+                            <p class="simple-tooltip top-left">
+                                The base Seed that the AI will use to compute an image. Use <b>Random</b> to generate a different output each render. You can reuse the Seed from a generated image to get similar output. <br/><span class="recommend"><b>Recommended:</b> Random</span>
+                            </p></i></a>
+                    </td></tr>
+                    <tr class="pl-5"><td><label for="num_outputs_total">Number of Images:</label></td><td><input id="num_outputs_total" name="num_outputs_total" value="1" size="1" onkeypress="preventNonNumericalInput(event)"> <label><small>(total)</small></label> <input id="num_outputs_parallel" class="displayNone" name="num_outputs_parallel" value="1" size="1" onkeypress="preventNonNumericalInput(event)"> <label class="displayNone" for="num_outputs_parallel"><small>(in parallel)</small></label>
+                        <button id="reload-models" class="secondaryButton reloadModels"><i class='fa-solid fa-rotate'> Reload Models</i></button>
+                    </td></tr>
                     <tr class="pl-5"><td><label for="stable_diffusion_model">Model:</label></td><td class="model-input">
                         <input id="stable_diffusion_model" type="text" spellcheck="false" autocomplete="off" class="model-filter" data-path="" />
-                        <button id="reload-models" class="secondaryButton reloadModels"><i class='fa-solid fa-rotate'></i></button>
-                        <a href="https://github.com/cmdr2/stable-diffusion-ui/wiki/Custom-Models" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">Click to learn more about custom models</span></i></a>
+                        <a href="https://civitai.com" target="_blank"><i class="fa-solid fa-circle-question help-btn">
+                            <p class="simple-tooltip top-left">
+                                The choice of model to use depends on the type of images you want to generate. <br/>Click here to look up different <b>Models</b> and their output samples.
+                            </p></i></a>
                     </td></tr>
                     <!-- <tr id="modelConfigSelection" class="pl-5"><td><label for="model_config">Model Config:</label></td><td>
                         <select id="model_config" name="model_config">
@@ -141,9 +153,12 @@
                     </td></tr> -->
                     <tr class="pl-5"><td><label for="vae_model">Custom VAE:</label></td><td>
                         <input id="vae_model" type="text" spellcheck="false" autocomplete="off" class="model-filter" data-path="" />
-                        <a href="https://github.com/cmdr2/stable-diffusion-ui/wiki/VAE-Variational-Auto-Encoder" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">Click to learn more about VAEs</span></i></a>
+                        <a href="https://github.com/cmdr2/stable-diffusion-ui/wiki/VAE-Variational-Auto-Encoder" target="_blank"><i class="fa-solid fa-circle-question help-btn">
+                            <p class="simple-tooltip top-left">
+                                Only use if it mathes the chosen <b>Model</b>. It may make or break the output. You may want to experiment with different VAEs to see which one works best for you. <br/><span class="recommend"><b>Recommended:</b> None</span>
+                            </p></i></a>
                     </td></tr>
-                    <tr id="samplerSelection" class="pl-5"><td><label for="sampler_name">Sampler:</label></td><td>
+                    <tr id="samplerSelection" class="pl-5"><td class="tooltip"><label for="sampler_name">Sampler:</label></td><td>
                         <select id="sampler_name" name="sampler_name">
                             <option value="plms">PLMS</option>
                             <option value="ddim">DDIM</option>
@@ -165,9 +180,12 @@
                             <option value="unipc_tu_2">UniPC TU 2</option>
                             <option value="unipc_tq">UniPC TQ</option>
                         </select>
-                        <a href="https://github.com/cmdr2/stable-diffusion-ui/wiki/How-to-Use#samplers" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">Click to learn more about samplers</span></i></a>
+                        <a href="https://github.com/cmdr2/stable-diffusion-ui/wiki/How-to-Use#samplers" target="_blank"><i class="fa-solid fa-circle-question help-btn">
+                            <p class="simple-tooltip top-left">
+                                The difference between <b>Samplers</b> lies in the way they carry out the denoising process. The choice of sampler can affect the <b>output</b> and <b>speed</b> of the generation process. <br/><span class="recommend"><b>Recommended: </b>Euler Ancestral</span></p>
+                            </p></i></a>
                     </td></tr>
-                    <tr class="pl-5"><td><label>Image Size: </label></td><td>
+                    <tr class="pl-5 displayNone"><td><label>Image Size: </label></td><td>
                         <select id="width" name="width" value="512">
                             <option value="128">128 (*)</option>
                             <option value="192">192</option>
@@ -214,9 +232,24 @@
                         <label for="height"><small>(height)</small></label>
                         <div id="small_image_warning" class="displayNone">Small image sizes can cause bad image quality</div>
                     </td></tr>
-                    <tr class="pl-5"><td><label for="num_inference_steps">Inference Steps:</label></td><td> <input id="num_inference_steps" name="num_inference_steps" size="4" value="25" onkeypress="preventNonNumericalInput(event)"></td></tr>
-                    <tr class="pl-5"><td><label for="guidance_scale_slider">Guidance Scale:</label></td><td> <input id="guidance_scale_slider" name="guidance_scale_slider" class="editor-slider" value="75" type="range" min="11" max="500"> <input id="guidance_scale" name="guidance_scale" size="4" pattern="^[0-9\.]+$" onkeypress="preventNonNumericalInput(event)"></td></tr>
-                    <tr id="prompt_strength_container" class="pl-5"><td><label for="prompt_strength_slider">Prompt Strength:</label></td><td> <input id="prompt_strength_slider" name="prompt_strength_slider" class="editor-slider" value="80" type="range" min="0" max="99"> <input id="prompt_strength" name="prompt_strength" size="4" pattern="^[0-9\.]+$" onkeypress="preventNonNumericalInput(event)"><br/></td></tr>
+                    <tr class="pl-5"><td><label for="num_inference_steps">Inference Steps:</label></td><td> <input id="num_inference_steps" name="num_inference_steps" size="4" value="25" onkeypress="preventNonNumericalInput(event)">
+                        <a><i class="fa-solid fa-circle-question help-btn">
+                            <p class="simple-tooltip top-left">
+                                The amount of steps that the AI will take to process the output. Lower values make for faster renders, while higher values make for a more complex final image. <br/><span class="recommend"><b>Recommended:</b> 20-50</span>
+                            </p></i></a>
+                    </td></tr>
+                    <tr class="pl-5"><td><label for="guidance_scale_slider">Guidance Scale:</label></td><td> <input id="guidance_scale_slider" name="guidance_scale_slider" class="editor-slider" value="75" type="range" min="11" max="500"> <input id="guidance_scale" name="guidance_scale" size="4" pattern="^[0-9\.]+$" onkeypress="preventNonNumericalInput(event)">
+                        <a><i class="fa-solid fa-circle-question help-btn">
+                            <p class="simple-tooltip top-left">
+                                How much will the AI consider your <b>Prompt</b>. Lower values give it more freedom, higher values follow the prompt more strictly. <br/><span class="recommend"><b>Recommended:</b> 6-10</span>
+                            </p></i></a>
+                    </td></tr>
+                    </td></tr>
+                    <tr id="prompt_strength_container" class="pl-5"><td><label for="prompt_strength_slider">Prompt Strength:</label></td><td> <input id="prompt_strength_slider" name="prompt_strength_slider" class="editor-slider" value="80" type="range" min="0" max="99"> <input id="prompt_strength" name="prompt_strength" size="4" pattern="^[0-9\.]+$" onkeypress="preventNonNumericalInput(event)"><br/>
+                        <p class="simple-tooltip top-left">
+                            The amount of freedom the AI has when modifying a given image (img2img). Smaller values will generate images closer to the given input image, higher values will modify the output more. <br/><span class="recommend"><b>Recommended:</b> 0.6</span>
+                        </p></i></a>
+                    </td></tr>
                     <tr id="lora_model_container" class="pl-5"><td><label for="lora_model">LoRA:</label></td><td>
                         <input id="lora_model" type="text" spellcheck="false" autocomplete="off" class="model-filter" data-path="" />
                     </td></tr>
@@ -226,6 +259,10 @@
                     </tr>
                     <tr class="pl-5"><td><label for="hypernetwork_model">Hypernetwork:</label></td><td>
                         <input id="hypernetwork_model" type="text" spellcheck="false" autocomplete="off" class="model-filter" data-path="" />
+                        <a href="https://civitai.com" target="_blank"><i class="fa-solid fa-circle-question help-btn">
+                            <p class="simple-tooltip top-left">
+                                Slightly enhances the output depending on what the Hypernetwork was trained on. Feel free to experiment with different options.
+                            </p></i></a>
                     </td></tr>
                     <tr id="hypernetwork_strength_container" class="pl-5">
                         <td><label for="hypernetwork_strength_slider">Hypernetwork Strength:</label></td>
@@ -233,22 +270,22 @@
                     </tr>
                     <tr class="pl-5"><td><label for="output_format">Output Format:</label></td><td>
                         <select id="output_format" name="output_format">
-                            <option value="jpeg" selected>jpeg</option>
-                            <option value="png">png</option>
+                            <option value="png" selected>png</option>
+                            <option value="jpeg">jpeg</option>
                             <option value="webp">webp</option>
                         </select>
                         <span id="output_lossless_container" class="displayNone">
                             <input id="output_lossless" name="output_lossless" type="checkbox"><label for="output_lossless">Lossless</label>
                         </span>
                     </td></tr>
-                    <tr class="pl-5" id="output_quality_row"><td><label for="output_quality">Image Quality:</label></td><td>
+                    <tr class="pl-5 displayNone" id="output_quality_row"><td><label for="output_quality">Image Quality:</label></td><td>
                     <input id="output_quality_slider" name="output_quality" class="editor-slider" value="75" type="range" min="10" max="95"> <input id="output_quality" name="output_quality" size="4" pattern="^[0-9\.]+$" onkeypress="preventNonNumericalInput(event)">
                     </td></tr>
                     </table></div>
 
                     <div><ul>
                     <li><b class="settings-subheader">Render Settings</b></li>
-                    <li class="pl-5"><input id="stream_image_progress" name="stream_image_progress" type="checkbox"> <label for="stream_image_progress">Show a live preview <small>(uses more VRAM, slower images)</small></label></li>
+                    <li class="pl-5 displayNone"><input id="stream_image_progress" name="stream_image_progress" type="checkbox"> <label for="stream_image_progress">Show a live preview <small>(uses more VRAM, slower images)</small></label></li>
                     <li class="pl-5"><input id="use_face_correction" name="use_face_correction" type="checkbox"> <label for="use_face_correction">Fix incorrect faces and eyes</label> <div style="display:inline-block;"><input id="gfpgan_model" type="text" spellcheck="false" autocomplete="off" class="model-filter" data-path="" /></div></li>
                     <li class="pl-5">
                         <input id="use_upscale" name="use_upscale" type="checkbox"> <label for="use_upscale">Scale up by</label> 
@@ -350,7 +387,7 @@
                             <tr><td><label>Compatible Graphics Cards (all):</label></td><td id="system-info-gpus-all" class="value"></td></tr>
                             <tr><td></td><td>&nbsp;</td></tr>
                             <tr><td><label>Used for rendering 🔥:</label></td><td id="system-info-rendering-devices" class="value"></td></tr>
-                            <tr><td><label>Server Addresses <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">You can access Stable Diffusion UI from other devices using these addresses</span></i> :</label></td><td id="system-info-server-hosts" class="value"></td></tr>
+                            <tr><td><label>Server Addresses <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">You can access smartAss UI from other devices using these addresses</span></i> :</label></td><td id="system-info-server-hosts" class="value"></td></tr>
                         </table>
                     </div>
                 </div>
