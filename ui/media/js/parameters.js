@@ -47,14 +47,14 @@ var PARAMETERS = [
         label: "Auto-Save Images",
         note: "automatically saves images to the specified location",
         icon: "fa-download",
-        default: false,
+        default: true,
     },
     {
         id: "diskPath",
         type: ParameterType.custom,
         label: "Save Location",
         render: (parameter) => {
-            return `<input id="${parameter.id}" name="${parameter.id}" size="30" disabled>`
+            return `<input id="${parameter.id}" name="${parameter.id}" size="30" value="/outputs">`
         },
     },
     {
@@ -120,7 +120,7 @@ var PARAMETERS = [
         label: "Open browser on startup",
         note: "starts the default browser on startup",
         icon: "fa-window-restore",
-        default: true,
+        default: false,
         saveInAppConfig: true,
     },
     {
@@ -133,10 +133,9 @@ var PARAMETERS = [
             "<b>High:</b> fastest, maximum GPU memory usage</br>" +
             "<b>Low:</b> slowest, recommended for GPUs with 3 to 4 GB memory",
         icon: "fa-forward",
-        default: "balanced",
+        default: "low",
         options: [
             { value: "balanced", label: "Balanced" },
-            { value: "high", label: "High" },
             { value: "low", label: "Low" },
         ],
     },
