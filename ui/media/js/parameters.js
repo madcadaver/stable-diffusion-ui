@@ -54,7 +54,7 @@ var PARAMETERS = [
         type: ParameterType.custom,
         label: "Save Location",
         render: (parameter) => {
-            return `<input id="${parameter.id}" name="${parameter.id}" size="30" value="/outputs">`
+            return `<input id="${parameter.id}" name="${parameter.id}" size="30" value="/outputs/easyDiff">`
         },
     },
     {
@@ -204,7 +204,7 @@ var PARAMETERS = [
         note:
             "Get the latest features immediately (but could be less stable). Please restart the program after changing this.",
         icon: "fa-fire",
-        default: false,
+        default: true,
     },
     {
         id: "test_diffusers",
@@ -213,7 +213,7 @@ var PARAMETERS = [
         note:
             "<b>Experimental! Can have bugs!</b> Use upcoming features (like LoRA) in our new engine. Please press Save, then restart the program after changing this.",
         icon: "fa-bolt",
-        default: false,
+        default: true,
         saveInAppConfig: true,
     },
 ]
